@@ -1,0 +1,2 @@
+npm init -y   -->  for packege .json file
+install express   --> npm i express 
