@@ -2,8 +2,8 @@
 Back-End -> Node
 ******************
 
-npm init -y   -->  for packege .json file
-install express   --> npm i express 
+```npm init -y   -->  for packege .json file
+install express   --> npm i express ```
 
 
 
