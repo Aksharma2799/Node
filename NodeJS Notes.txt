@@ -1,0 +1,146 @@
+******************
+Back-End -> Node
+******************
+
+```
+	npm init -y   -->  for packege .json file
+	install express   --> npm i express 
+	npm install mongoose
+	npm install nodemon
+
+
+
+	Nodemon : automatically restart server
+		"scripts": {
+		"start": "node index.js",
+		"dev": "nodemon index.js"
+		
+		cmd : npm run dev
+  },
+
+```
+
+==> The middleware in node. js is a function that will have all the access for requesting an object, responding to an object, and moving to the next middleware function in the application request-response cycle.
+
+==> TCP is a connection-oriented protocol and every connection-oriented protocol needs to establish a connection in order to reserve resources at both the communicating ends. 
+
+**************************************************
+// TO create a server
+
+server.js
+    const express = require('express');
+    const app = express();
+
+**************************************************
+//activate server on port 5000
+
+app.listen(5000, () => {
+  console.log("listening on port no. 5000");
+});
+
+**************************************************
+
+//create routes
+
+app.get("/", (req, res) => {
+  res.send("Welcome");
+});
+
+app.post("/api/v1/cars", (req, res) => {
+  const { name, brand } = req.body;
+  console.log(name, brand);
+  res.send("cars successfully submitted");
+});
+
+**************************************************
+Body-parser is the Node.js body-parsing middleware. It is responsible for parsing the incoming request bodies in a middleware before you handle it. It’s commonly used in web applications built with Express.js to handle form submissions, JSON payloads, and other types of request bodies.
+
+**************************************************
+MongoDB:- 
+	Requirements: 
+	1. MangoDB Community Server, Download : msi version
+	2. MangoDB Compass 
+	3. Atlas Database
+	
+
+**************************************************
+
+RESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.
+	
+	RestAPI : 
+		1. POST
+		2. PUT
+		3. GET
+		4. DELETE ... etc
+
+**************************************************
+
+connection: express and MongoDB:-
+    using mongoose 
+    ODM: object data modeling
+
+**************************************************
+
+Controller : DB entry create, Logics, 
+Models : Here will define object., structure 
+Routes : paths	
+config : Database
+
+
+
+**************************************************
+
+process.exit(0): 
+	This indicates a successful termination. The exit code 0 typically means that the process completed without errors.
+process.exit(1): 
+	This indicates an unsuccessful termination. The exit code 1 (or any non-zero value) generally signifies that the process encountered an error or some issue that prevented it from completing successfully.
+
+**************************************************
+Schema :  Description of your data is schema.
+	A Mongoose schema defines the structure of the documents within a MongoDB collection, including field names, data types, default values, and validation requirements.
+
+**************************************************
+MongoDB Services start: 
+cmd
+	brew services start mongodb-community
+	mongod --config /opt/homebrew/etc/mongod.conf
+	
+**************************************************
+controllers: 
+	Controllers handle the business logic of the application. They receive input from the routes, interact with the models, and send the appropriate responses back to the client.
+
+	Definition: Controllers define methods that correspond to different actions (e.g., retrieving a list of users, creating a new user).
+	Interaction: They process the input (often from routes), call the necessary model methods, and send back the response.
+
+
+
+**************************************************
+models:
+	Models represent the data layer of the application. They define the structure of the data, interact with the database, and contain the logic for creating, reading, updating, and deleting data.
+	
+	Definition: Models are often defined using a schema that outlines the structure of the data.
+	Interaction: They handle database interactions, including querying and saving data.
+
+
+
+
+
+**************************************************
+config:
+	Configuration files store settings and constants that are used throughout the application. These might include database connection strings, API keys, and environment-specific variables.
+
+	Definition: Config files hold environment variables and other configuration settings.
+
+	Interaction: They provide a centralized place to manage settings, making it easier to configure the app for different environments (development, testing, production).
+
+
+
+**************************************************
+Routes:
+	Routes define the endpoints of the application and map them to specific controller functions. They determine how the application responds to client requests to various URLs.
+
+	Definition: Routes set up URL paths and associate them with specific HTTP methods (GET, POST, PUT, DELETE).
+	Interaction: They call the appropriate controller functions based on the request URL and method.
+
+1.Import controller 2. Mapping create 3. export
+
